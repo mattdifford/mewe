@@ -1,0 +1,53 @@
+$xxxs: (
+  max: 400px
+);
+$xxs: (
+  max: 450px
+);
+$xs: (
+  max: 991px
+);
+$sm: (
+  min: 992px
+);
+$md: (
+  min: 1200px
+);
+$lg: (
+  min: 1460px
+);
+$sm-only: (
+  min: map-get($sm, min),
+  max: map-get($md, min) - 1
+);
+$md-only: (
+  min: map-get($md, min),
+  max: map-get($lg, min) - 1
+);
+$mobile: (
+  max: map-get($md, min) - 1
+);
+
+@mixin in_size($map) {
+  $query: "";
+
+  @if map-has-key($map, min) {
+    $query: append($query, "(min-width: #{map-get($map, min)})");
+  }
+
+  @if map-has-key($map, min) and map-has-key($map, max) {
+    $query: append($query, "and");
+  }
+
+  @if map-has-key($map, max) {
+    $query: append($query, "(max-width: #{map-get($map, max)})");
+  }
+
+  @media screen and #{$query} {
+    @content;
+  }
+}
+
+@mixin media($map) {
+  @include in_size($map);
+}
