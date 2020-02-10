@@ -1,15 +1,34 @@
-<script src="https://identity-js.netlify.com/v1/netlify-identity-widget.js"></script>
-<script src="{{ "/js/cash.min.js" | relative_url }}"></script>
-<script src="{{ "/js/modernizr.min.js" | relative_url }}"></script>
-<script src="{{ "/js/anime.min.js" | relative_url }}"></script>
-<script src="{{ "/js/script.js" | relative_url }}"></script>
-<script src="{{ "/js/lazysizes.min.js" | relative_url }}"></script>
+<script>
+    if (document.createStyleSheet) {
+        document.createStyleSheet("/assets/css/bootstrap.css");
+        document.createStyleSheet("/assets/css/default.css");
+        document.createStyleSheet("https://use.typekit.net/xxf2jfn.css");
+    } else {
+        var stylesheet_bs = document.createElement('link');
+        stylesheet_bs.href = "/assets/css/bootstrap.css";
+        stylesheet_bs.rel = 'stylesheet';
+        stylesheet_bs.type = 'text/css';
+        document.getElementsByTagName('head')[0].appendChild(stylesheet_bs);
 
-<script type="text/javascript">
-    var fonts = document.createElement('link');
-    fonts.rel = 'stylesheet';
-    fonts.href = 'https://fonts.googleapis.com/css?family=Montserrat:400,700|Orbitron:700|Syncopate:700&display=swap';
-    fonts.type = 'text/css';
-    var defer = document.getElementsByTagName('link')[0];
-    defer.parentNode.insertBefore(fonts, defer);
+        var stylesheet_default = document.createElement('link');
+        stylesheet_default.href = "/assets/css/default.css";
+        stylesheet_default.rel = 'stylesheet';
+        stylesheet_default.type = 'text/css';
+        document.getElementsByTagName('head')[0].appendChild(stylesheet_default);
+
+
+        var stylesheet_font = document.createElement('link');
+        stylesheet_font.href = "https://use.typekit.net/xxf2jfn.css";
+        stylesheet_font.rel = 'stylesheet';
+        stylesheet_font.type = 'text/css';
+        document.getElementsByTagName('head')[0].appendChild(stylesheet_font);
+    }
+
+    
 </script>
+
+<noscript>
+    <link rel="stylesheet" href="/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/assets/css/default.css">
+    <link rel="stylesheet" href="https://use.typekit.net/xxf2jfn.css">
+</noscript>
