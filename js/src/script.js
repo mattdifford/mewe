@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    window.location.href = window.location.href.split('#')[0] + '#0'
     $('body').addClass("loaded");
     var elements = document.querySelectorAll('.scroll-image');
 
@@ -84,9 +85,33 @@ $(document).ready(function () {
     });
     var strip_images = [];
     $('.strip__image').each(function (index) {
-        strip_images[$(this).attr("id")] = new OriDomi('#' + $(this).attr("id"), { vPanels: 2, hPanels: 2, touchEnabled: false});
+        strip_images[$(this).attr("id")] = new OriDomi('#' + $(this).attr("id"), { vPanels: 2, hPanels: 2, touchEnabled: false });
         strip_images[$(this).attr("id")].foldUp();
-    })
+    });
+    var tl = anime.timeline({
+        easing: 'easeInOutQuart',
+        duration: 750,
+        complete: function () {
+            setTimeout(function () {
+                $('html, body').animate({ scrollTop: $('#strip1').offset().top }, 1000, function () {
+                    anime({
+                        targets: '.header-image',
+                        scaleY: [1, 0],
+                        easing: 'easeInOutQuart',
+                        duration: 750,
+                    })
+                });
+            }, 1000)
+        }
+    });
+    tl.add({
+        targets: '.header-image__subtitle',
+        opacity: [0, 1]
+    }, 1500)
+        .add({
+            targets: '.header-image__bg',
+            opacity: [0, 1]
+        }, 2250);
 });
 
 $.fn.serializeObject = function () {
