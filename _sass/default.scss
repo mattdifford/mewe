@@ -1,4 +1,27 @@
-h1,h2,h3,h4,h5,h6{
-    font-family: $font_heading;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font_heading;
 }
 
+.strip {
+  display: flex;
+  align-items: center;
+  &--1 {
+    background: $colour_secondary;
+  }
+  &--2 {
+    background: #fff;
+  }
+  &__image {
+    width: 195px;
+    height: 265px;
+    &-wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

@@ -1,15 +1,16 @@
 $(document).ready(function () {
     $('body').addClass("loaded");
-    var elements = document.querySelectorAll('.scrollwatch');
+    var elements = document.querySelectorAll('.scroll-image');
+
     var config = {
         threshold: 0.01
     };
     var observer;
     function onIntersection(entries) {
-        entries.forEach(entry => {
+        entries.forEach(function (entry, index) {
             if (entry.intersectionRatio > 0) {
                 observer.unobserve(entry.target);
-                handleScrolledIntoView(entry.target);
+                handleScrolledIntoView(entry.target, index);
             }
         });
     }
@@ -22,7 +23,12 @@ $(document).ready(function () {
             observer.observe(el);
         });
     }
-    function handleScrolledIntoView(target) {
+    function handleScrolledIntoView(target, delay) {
+        if (target.className.indexOf('strip__image') > -1) {
+            setTimeout(function () {
+                strip_images[target.id].unfold();
+            }, 500 + (delay * 200));
+        }
         target.classList.add('scrolled');
     }
 
@@ -76,6 +82,11 @@ $(document).ready(function () {
             });
         });
     });
+    var strip_images = [];
+    $('.strip__image').each(function (index) {
+        strip_images[$(this).attr("id")] = new OriDomi('#' + $(this).attr("id"), { vPanels: 2, hPanels: 2, touchEnabled: false});
+        strip_images[$(this).attr("id")].foldUp();
+    })
 });
 
 $.fn.serializeObject = function () {
@@ -93,3 +104,11 @@ $.fn.serializeObject = function () {
     });
     return o;
 };
+
+new fullScroll({
+    mainElement: 'main',
+    displayDots: true,
+    dotsPosition: 'left',
+    animateTime: 0.7,
+    animateFunction: 'ease-in-out'
+});
