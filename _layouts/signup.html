@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+{%- include head.html -%}
+
+<body class="body--{{page.section}}">
+    {%- include header.html -%}
+    {%- include form--{{page.section}}.html %}
+
+    {%- include foot.html layout=page.layout -%}
+    <script>
+        $('.field__link-add').on("click", function (e) {
+            e.preventDefault();
+            var last = $('.field__inner').last();
+            var count = parseInt(last.attr("id").slice(-1));
+            var new_index = count + 1;
+            var clone = last.clone();
+            clone.attr("id", 'field_inner_' + new_index);
+            clone.find('.field__input--select').attr("name", 'platform-' + new_index);
+            clone.find('.field__input[type="text"]').attr("name", 'handle-' + new_index).attr("id", 'handle-' + new_index).val("");
+            last.after(clone);
+        });
+        $('.field__link-remove').on("click", function (e) {
+            e.preventDefault();
+            $(this).parent('.field__inner').remove();
+        });
+    </script>
+</body>
+
+</html>

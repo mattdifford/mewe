@@ -1,0 +1,28 @@
+{% assign fields = 'Contact name, Contact email, Contact telephone, Company name' | split: ', '%}
+{% assign campaign_fields = 'Campaign title, Audience, Budget, Campaign dates, KPIs, Desired channels' | split: ', '%}
+<div class="form-strip">
+    <form class="form">
+        <h3 class="form__title">Contact details</h3>
+        <div class="form__field-wrapper">
+            {% for field in fields %}
+            <div class="form__field field">
+                <label class="field__label" for="{{field | slugify}}">{{field}}</label>
+                <input class="field__input" name="{{field | slugify}}" id="{{field | slugify}}" type="text" />
+            </div>
+            {%endfor%}
+        </div>
+        <h3 class="form__title">Campaign brief</h3>
+        <div class="form__field-wrapper">
+            {% for field in campaign_fields %}
+            <div class="form__field field">
+                <label class="field__label" for="{{field | slugify}}">{{field}}</label>
+                <input class="field__input" name="{{field | slugify}}" id="{{field | slugify}}" type="text" />
+            </div>
+            {%endfor%}
+        </div>
+        <p class="form__disclaimer">By clicking on the “Submit” button below, you are agreeing to the terms & conditions
+            and
+            the privacy policy.</p>
+        <button class="button button--secondary" id="form_submit">Submit</button>
+    </form>
+</div>

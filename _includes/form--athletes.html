@@ -1,0 +1,49 @@
+<div class="form-strip">
+    <form class="form">
+        <h3 class="form__title">Athlete signup</h3>
+        <div class="form__field-wrapper">
+            <div class="form__field field">
+                <label class="field__label" for="firstname">First name</label>
+                <input class="field__input" name="firstname" id="firstname" type="text" />
+            </div>
+            <div class="form__field field">
+                <label class="field__label" for="surname">Surname</label>
+                <input class="field__input" name="surname" id="surname" type="text" />
+            </div>
+            <div class="form__field field">
+                <label class="field__label" for="tel">Phone number</label>
+                <input class="field__input" name="tel" id="tel" type="tel" />
+            </div>
+            <div class="form__field field">
+                <label class="field__label" for="email">Email address</label>
+                <input class="field__input" name="email" id="email" type="email" />
+            </div>
+        </div>
+        <div class="form__field field field--socials">
+            <legend class="field__label">What are your social handles?</legend>
+            <div class="field__sub-wrapper"><label class="field__label--sub">Platform</label>
+                <label class="field__label--sub">Username</label></div>
+            <div class="field__inner" id="field_inner_1">
+                <div class="field__field">
+                    <select class="field__input field__input--select" name="platform-1">
+                        <option value="Instagram">Instagram</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Twitter">Twitter</option>
+                        <option value="YouTube">YouTube</option>
+                    </select>
+                </div>
+                <div class="field__field">
+                    <input class="field__input" name="handle-1" id="handle-1" type="text" />
+                    <a href="#" class="field__link field__link-remove"></a>
+                </div>
+            </div>
+            <div class="field__footer">
+                <a href="#" class="field__link field__link-add">Add another</a>
+            </div>
+        </div>
+        <p class="form__disclaimer">By clicking on the “Submit” button below, you are agreeing to the terms & conditions
+            and
+            the privacy policy.</p>
+        <button class="button button--secondary" id="form_submit">Submit</button>
+    </form>
+</div>

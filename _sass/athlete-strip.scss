@@ -1,0 +1,23 @@
+.athlete-strip {
+  display: flex;
+  align-items: center;
+  background: $colour_tertiary;
+  text-align: center;
+  &__image {
+    width: 195px;
+    height: 265px;
+    &-wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__title {
+    font-family: $font_text;
+    font-weight: 600;
+    font-size: 40px;
+    margin: 0 0 75px;
+    padding-bottom: 15px;
+    border-bottom: 4px solid currentColor;
+    display: inline-block;
+  }
+}

@@ -1,5 +1,5 @@
 ---
 layout: home
-description: Page Description
+description: Sport has the power to change the world
 permalink: /
 ---

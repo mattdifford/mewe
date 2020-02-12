@@ -112,4 +112,12 @@
       }
     }
   }
+  @include in_size($xs) {
+    &__title {
+      font-size: 100px;
+    }
+    &__subtitle {
+      padding: 0 40px;
+    }
+  }
 }

@@ -3,6 +3,7 @@
     if (document.createStyleSheet) {
         document.createStyleSheet("/assets/css/bootstrap.css");
         document.createStyleSheet("/assets/css/default.css");
+        document.createStyleSheet("/assets/css/{{include.layout}}.css");
         document.createStyleSheet("https://use.typekit.net/xxf2jfn.css");
     } else {
         var stylesheet_bs = document.createElement('link');
@@ -17,6 +18,12 @@
         stylesheet_default.type = 'text/css';
         document.getElementsByTagName('head')[0].appendChild(stylesheet_default);
 
+        var stylesheet_layout = document.createElement('link');
+        stylesheet_layout.href = "/assets/css/{{include.layout}}.css";
+        stylesheet_layout.rel = 'stylesheet';
+        stylesheet_layout.type = 'text/css';
+        document.getElementsByTagName('head')[0].appendChild(stylesheet_layout);
+
 
         var stylesheet_font = document.createElement('link');
         stylesheet_font.href = "https://use.typekit.net/xxf2jfn.css";
@@ -25,7 +32,7 @@
         document.getElementsByTagName('head')[0].appendChild(stylesheet_font);
     }
 
-    
+
 </script>
 
 <noscript>

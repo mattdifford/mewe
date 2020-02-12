@@ -2,13 +2,12 @@ body {
   background: $colour_primary;
 }
 
-body,
-html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+.scroll-container {
+  display: none;
+}
+
+.header {
+  display: none;
 }
 
 .scroll-container {
@@ -17,9 +16,7 @@ html {
   position: relative;
   margin: 0;
   padding: 0;
-  .strip,
-  .header-image,
-  .select-strip {
+  .scroll-strip {
     width: 100%;
     height: 100%;
   }

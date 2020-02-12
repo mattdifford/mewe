@@ -3,13 +3,59 @@
 {%-include head.html-%}
 
 <body>
-    {%- include header.html -%}
     {%- include header_image.html -%}
     <div id="main" class="scroll-container">
         {%- include select-strip.html -%}
-        {%- include strip.html -%}
+        {%- include split-strip.html -%}
     </div>
-    {%- include foot.html -%}
+    {%- include foot.html layout=page.layout-%}
+    <script>
+        if (window.innerWidth > 700) {
+            window.location.href = window.location.href.split('#')[0] + '#0'
+            new fullScroll({
+                mainElement: 'main',
+                displayDots: true,
+                dotsPosition: 'left',
+                animateTime: 0.7,
+                animateFunction: 'ease-in-out'
+            });
+        }
+        var tl = anime.timeline({
+            easing: 'easeInOutQuart',
+            duration: 750,
+            complete: function () {
+                $('.scroll-container').show();
+                setTimeout(function () {
+                    $('html, body').animate({ scrollTop: $('#strip1').offset().top }, 1000, function () {
+                        anime({
+                            targets: '.header-image',
+                            scaleY: [1, 0],
+                            easing: 'easeInOutQuart',
+                            duration: 750,
+                            complete: function () {
+                                $('.header-image').hide();
+                            }
+                        })
+                    });
+                }, 1000)
+            }
+        });
+        tl.add({
+            targets: '.header-image__subtitle',
+            opacity: [0, 1]
+        }, 1500)
+            .add({
+                targets: '.header-image__bg',
+                opacity: [0, 1]
+            }, 2250);
+        anime({
+            targets: '.select-strip__down',
+            translateY: ["-5px", "5px"],
+            direction: 'alternate',
+            loop: true,
+            easing: 'spring(1, 80, 50, 0)'
+        });
+    </script>
 </body>
 
 </html>

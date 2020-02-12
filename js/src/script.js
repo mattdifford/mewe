@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    window.location.href = window.location.href.split('#')[0] + '#0'
+    
     $('body').addClass("loaded");
     var elements = document.querySelectorAll('.scroll-image');
 
@@ -25,7 +25,7 @@ $(document).ready(function () {
         });
     }
     function handleScrolledIntoView(target, delay) {
-        if (target.className.indexOf('strip__image') > -1) {
+        if (target.className.indexOf('fold-image') > -1) {
             setTimeout(function () {
                 strip_images[target.id].unfold();
             }, 500 + (delay * 200));
@@ -38,80 +38,11 @@ $(document).ready(function () {
             $("html,body").animate({ scrollTop: $($(this).attr("href")).offset().top - 100 }, 750);
         }
     });
-    $('#signup_form .form__button').on("click", function (e) {
-        e.preventDefault();
-        $('.form__message').remove();
-        var parent_form = $('#signup_form');
-        parent_form.parsley().whenValidate({
-            force: true
-        }).done(function () {
-            var formData = parent_form.serializeObject();
-            formData.lp_campaign_id = '5e30378c0b5a5';
-            formData.lp_campaign_key = 'nNXfVJ7d4Gzcwby2Zp6P';
-            $.ajax({
-                async: true,
-                url: 'https://savvy.leadspediatrack.com/post.do',
-                data: formData,
-                type: 'POST',
-                dataType: "xml",
-                success: function (data) {
-                    var response = data.all;
-                    var nodes = [];
-                    for (i = 0; i < response.length; i++) {
-                        nodes[data.all[i].nodeName] = i;
-                    }
-                    var result_index = nodes["result"];
-                    var error_index = nodes["error"];
-                    var success = true;
-                    var msg = 'You have successfully subscribed. Check your inbox for your £15 off code';
-                    if (response[result_index].innerHTML === 'failed') {
-                        success = false;
-                        if (response[error_index].innerHTML === 'Invalid Email') {
-                            msg = 'Please check your email address and try again';
-                        } else {
-                            msg = 'This email address is already subscribed';
-                        }
-                    }
-                    if (success) {
-                        gtag('event', 'Successful subscription', { 'event_category': 'Subscription', 'event_label': 'Subscribed from signup.afinehour.com' });
-                    }
-                    parent_form.append('<p class="form__message ' + (success ? 'form__message--success' : 'form__message--error') + '">' + msg + '</p>');
-                },
-                error: function (e) {
-                    parent_form.append('<p class="form__message form__message--error">Something went wrong, please try again.</p>');
-                }
-            });
-        });
-    });
     var strip_images = [];
-    $('.strip__image').each(function (index) {
+    $('.fold-image').each(function (index) {
         strip_images[$(this).attr("id")] = new OriDomi('#' + $(this).attr("id"), { vPanels: 2, hPanels: 2, touchEnabled: false });
         strip_images[$(this).attr("id")].foldUp();
     });
-    var tl = anime.timeline({
-        easing: 'easeInOutQuart',
-        duration: 750,
-        complete: function () {
-            setTimeout(function () {
-                $('html, body').animate({ scrollTop: $('#strip1').offset().top }, 1000, function () {
-                    anime({
-                        targets: '.header-image',
-                        scaleY: [1, 0],
-                        easing: 'easeInOutQuart',
-                        duration: 750,
-                    })
-                });
-            }, 1000)
-        }
-    });
-    tl.add({
-        targets: '.header-image__subtitle',
-        opacity: [0, 1]
-    }, 1500)
-        .add({
-            targets: '.header-image__bg',
-            opacity: [0, 1]
-        }, 2250);
 });
 
 $.fn.serializeObject = function () {
@@ -129,11 +60,3 @@ $.fn.serializeObject = function () {
     });
     return o;
 };
-
-new fullScroll({
-    mainElement: 'main',
-    displayDots: true,
-    dotsPosition: 'left',
-    animateTime: 0.7,
-    animateFunction: 'ease-in-out'
-});
