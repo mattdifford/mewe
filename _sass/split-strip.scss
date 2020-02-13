@@ -70,13 +70,13 @@
         display: none;
       }
     }
-  }
-  &__image {
-    display: none;
-  }
-  &__col {
-    &-content {
-      padding-right: 0;
+    &__image {
+      display: none;
+    }
+    &__col {
+      &-content {
+        padding-right: 0;
+      }
     }
   }
   @include in_size($xxs) {
