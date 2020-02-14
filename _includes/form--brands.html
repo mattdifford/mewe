@@ -12,7 +12,11 @@
                     <div class="form__field-wrapper">
                         {% for field in fields %}
                         {% assign field_map = field |split: '#'%}
+                        {% if field_map[1] == 'FNAME' or  field_map[1] == 'LNAME' %}
+                        <div class="form__field field mc-field-group field--name">
+                        {%else%}
                         <div class="form__field field mc-field-group">
+                        {%endif%}
                             {% if field_map[1] == 'EMAIL' %}
                             {%assign field_type = 'email'%}
                             {%else%}
@@ -43,8 +47,8 @@
                         id="mc-embedded-subscribe" />
                 </div>
                 <div id="mce-responses" class="clear">
-                    <div class="response" id="mce-error-response" style="display:none"></div>
-                    <div class="response" id="mce-success-response" style="display:none"></div>
+                    <div class="response form__message form__message--error" id="mce-error-response" style="display:none"></div>
+                    <div class="response form__message form__message--success" id="mce-success-response" style="display:none"></div>
                 </div>
                 <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                 <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
