@@ -34,7 +34,7 @@ $(document).ready(function () {
     }
 
     $('a').on("click", function () {
-        if ($(this).attr("href").charAt(0) === '#') {
+        if ($(this).attr("href").charAt(0) === '#' && $(this).attr("href").length > 1) {
             $("html,body").animate({ scrollTop: $($(this).attr("href")).offset().top - 100 }, 750);
         }
     });

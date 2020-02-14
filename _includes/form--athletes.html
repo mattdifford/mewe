@@ -1,49 +1,77 @@
+{% assign fields = 'First name#FNAME, Surname#LNAME, Contact email#EMAIL, Contact telephone#PHONE, Company name#COMPANY' | split: ', '%}
+{% assign campaign_fields = 'Campaign title#C_TITLE, Audience#C_AUDIENCE, Budget#C_BUDGET, Campaign dates#C_DATES, KPIs#C_KPIS, Desired channels#C_CHANNELS' | split: ', '%}
 <div class="form-strip">
-    <form class="form">
-        <h3 class="form__title">Athlete signup</h3>
-        <div class="form__field-wrapper">
-            <div class="form__field field">
-                <label class="field__label" for="firstname">First name</label>
-                <input class="field__input" name="firstname" id="firstname" type="text" />
-            </div>
-            <div class="form__field field">
-                <label class="field__label" for="surname">Surname</label>
-                <input class="field__input" name="surname" id="surname" type="text" />
-            </div>
-            <div class="form__field field">
-                <label class="field__label" for="tel">Phone number</label>
-                <input class="field__input" name="tel" id="tel" type="tel" />
-            </div>
-            <div class="form__field field">
-                <label class="field__label" for="email">Email address</label>
-                <input class="field__input" name="email" id="email" type="email" />
-            </div>
-        </div>
-        <div class="form__field field field--socials">
-            <legend class="field__label">What are your social handles?</legend>
-            <div class="field__sub-wrapper"><label class="field__label--sub">Platform</label>
-                <label class="field__label--sub">Username</label></div>
-            <div class="field__inner" id="field_inner_1">
-                <div class="field__field">
-                    <select class="field__input field__input--select" name="platform-1">
-                        <option value="Instagram">Instagram</option>
-                        <option value="Facebook">Facebook</option>
-                        <option value="Twitter">Twitter</option>
-                        <option value="YouTube">YouTube</option>
-                    </select>
+    <div class="form-strip__inner">
+        <div id="mc_embed_signup">
+            <form
+                action="https://savvymediagroup.us3.list-manage.com/subscribe/post?u=0181336f4209f4cc1f511bebd&amp;id=62483c789d"
+                method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form"
+                target="_blank" novalidate>
+                <div class="form__inner">
+                    <h3 class="form__title">Athlete signup</h3>
+                    <div class="form__field-wrapper">
+                        <div class="form__field field mc-field-group">
+                            <label class="field__label" for="mce-FNAME">First name</label>
+                            <input class="field__input" name="FNAME" id="mce-FNAME" type="text" />
+                        </div>
+                        <div class="form__field field mc-field-group">
+                            <label class="field__label" for="mce-LNAME">Surname</label>
+                            <input class="field__input" name="LNAME" id="mce-LNAME" type="text" />
+                        </div>
+                        <div class="form__field field mc-field-group">
+                            <label class="field__label" for="mce-PHONE">Phone number</label>
+                            <input class="field__input" name="PHONE" id="mce-PHONE" type="tel" />
+                        </div>
+                        <div class="form__field field mc-field-group">
+                            <label class="field__label" for="mce-EMAIL">Email address</label>
+                            <input class="field__input" name="EMAIL" id="mce-EMAIL" type="email" />
+                        </div>
+                    </div>
+                    <div class="form__field field field--socials">
+                        <legend class="field__label">What are your social handles?</legend>
+                        <div class="field__sub-wrapper"><label class="field__label--sub">Platform</label>
+                            <label class="field__label--sub">Username</label></div>
+                        <div class="field__inner field--social" id="field_inner_1">
+                            <div class="field__field">
+                                <select class="field__input field__input--select field__input--platform"
+                                    name="platform-1">
+                                    <option value="Instagram">Instagram</option>
+                                    <option value="Facebook">Facebook</option>
+                                    <option value="Twitter">Twitter</option>
+                                    <option value="YouTube">YouTube</option>
+                                </select>
+                            </div>
+                            <div class="field__field">
+                                <input class="field__input field__input--username" name="handle-1" id="handle-1"
+                                    type="text" />
+                                <a href="#" class="field__link field__link-remove"></a>
+                            </div>
+                        </div>
+                        <div class="field__footer">
+                            <a href="#" class="field__link field__link-add">Add another</a>
+                        </div>
+                    </div>
+                    <p class="form__disclaimer">By clicking on the “Submit” button below, you are agreeing to the terms
+                        &
+                        conditions
+                        and
+                        the privacy policy.</p>
+                    <input type="submit" class="button button--secondary" value="Submit" name="subscribe"
+                        id="mc-embedded-subscribe" />
+                    <input name="A_SOC_1" id="mce-A_SOC_1" type="hidden" />
+                    <input name="A_SOC_2" id="mce-A_SOC_2" type="hidden" />
+                    <input name="A_SOC_3" id="mce-A_SOC_3" type="hidden" />
+                    <input name="A_SOC_4" id="mce-A_SOC_4" type="hidden" />
+                    <input name="A_SOC_5" id="mce-A_SOC_5" type="hidden" />
                 </div>
-                <div class="field__field">
-                    <input class="field__input" name="handle-1" id="handle-1" type="text" />
-                    <a href="#" class="field__link field__link-remove"></a>
+                <div id="mce-responses" class="clear">
+                    <div class="response" id="mce-error-response" style="display:none"></div>
+                    <div class="response" id="mce-success-response" style="display:none"></div>
                 </div>
-            </div>
-            <div class="field__footer">
-                <a href="#" class="field__link field__link-add">Add another</a>
-            </div>
+                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                        name="b_0181336f4209f4cc1f511bebd_62483c789d" tabindex="-1" value=""></div>
+            </form>
         </div>
-        <p class="form__disclaimer">By clicking on the “Submit” button below, you are agreeing to the terms & conditions
-            and
-            the privacy policy.</p>
-        <button class="button button--secondary" id="form_submit">Submit</button>
-    </form>
+    </div>
 </div>

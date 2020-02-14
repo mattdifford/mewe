@@ -1,28 +1,55 @@
-{% assign fields = 'Contact name, Contact email, Contact telephone, Company name' | split: ', '%}
-{% assign campaign_fields = 'Campaign title, Audience, Budget, Campaign dates, KPIs, Desired channels' | split: ', '%}
+{% assign fields = 'First name#FNAME, Surname#LNAME, Contact email#EMAIL, Contact telephone#PHONE, Company name#COMPANY' | split: ', '%}
+{% assign campaign_fields = 'Campaign title#C_TITLE, Audience#C_AUDIENCE, Budget#C_BUDGET, Campaign dates#C_DATES, KPIs#C_KPIS, Desired channels#C_CHANNELS' | split: ', '%}
 <div class="form-strip">
-    <form class="form">
-        <h3 class="form__title">Contact details</h3>
-        <div class="form__field-wrapper">
-            {% for field in fields %}
-            <div class="form__field field">
-                <label class="field__label" for="{{field | slugify}}">{{field}}</label>
-                <input class="field__input" name="{{field | slugify}}" id="{{field | slugify}}" type="text" />
-            </div>
-            {%endfor%}
+    <div class="form-strip__inner">
+        <div id="mc_embed_signup">
+            <form
+                action="https://savvymediagroup.us3.list-manage.com/subscribe/post?u=0181336f4209f4cc1f511bebd&amp;id=62483c789d"
+                method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form"
+                target="_blank" novalidate>
+                <div class="form__inner">
+                    <h3 class="form__title">Contact details</h3>
+                    <div class="form__field-wrapper">
+                        {% for field in fields %}
+                        {% assign field_map = field |split: '#'%}
+                        <div class="form__field field mc-field-group">
+                            {% if field_map[1] == 'EMAIL' %}
+                            {%assign field_type = 'email'%}
+                            {%else%}
+                            {%assign field_type = 'text'%}
+                            {%endif%}
+                            <label class="field__label" for="mce-{{field_map[1]}}">{{field_map[0]}}</label>
+                            <input class="field__input" name="{{field_map[1]}}" id="mce-{{field_map[1]}}"
+                                type="{{field_type}}" />
+                        </div>
+                        {%endfor%}
+                    </div>
+                    <h3 class="form__title">Campaign brief</h3>
+                    <div class="form__field-wrapper">
+                        {% for field in campaign_fields %}
+                        {% assign field_map = field | split: '#'%}
+                        <div class="form__field field">
+                            <label class="field__label" for="{{field_map[1]}}">{{field_map[0]}}</label>
+                            <input class="field__input" name="{{field_map[1]}}" id="{{field_map[1]}}" type="text" />
+                        </div>
+                        {%endfor%}
+                    </div>
+                    <p class="form__disclaimer">By clicking on the “Submit” button below, you are agreeing to the terms
+                        &
+                        conditions
+                        and
+                        the privacy policy.</p>
+                    <input type="submit" class="button button--secondary" value="Submit" name="subscribe"
+                        id="mc-embedded-subscribe" />
+                </div>
+                <div id="mce-responses" class="clear">
+                    <div class="response" id="mce-error-response" style="display:none"></div>
+                    <div class="response" id="mce-success-response" style="display:none"></div>
+                </div>
+                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                        name="b_0181336f4209f4cc1f511bebd_62483c789d" tabindex="-1" value=""></div>
+            </form>
         </div>
-        <h3 class="form__title">Campaign brief</h3>
-        <div class="form__field-wrapper">
-            {% for field in campaign_fields %}
-            <div class="form__field field">
-                <label class="field__label" for="{{field | slugify}}">{{field}}</label>
-                <input class="field__input" name="{{field | slugify}}" id="{{field | slugify}}" type="text" />
-            </div>
-            {%endfor%}
-        </div>
-        <p class="form__disclaimer">By clicking on the “Submit” button below, you are agreeing to the terms & conditions
-            and
-            the privacy policy.</p>
-        <button class="button button--secondary" id="form_submit">Submit</button>
-    </form>
+    </div>
 </div>

@@ -11,12 +11,24 @@
   @include in_size($xs) {
     padding-top: 90px;
   }
+  &__inner {
+    @include in_size($md) {
+      width: 55%;
+    }
+  }
 }
 
 .form {
   background: #fff;
   padding: 30px 40px;
   box-shadow: 0 3px 6px 0 rgba(#000, 0.16);
+  &--submitted {
+    .form {
+      &__inner {
+        display: none;
+      }
+    }
+  }
   &__title {
     font-size: 40px;
     margin: 25px 0 20px;
@@ -43,9 +55,6 @@
         width: 100%;
       }
     }
-  }
-  @include in_size($md) {
-    width: 55%;
   }
   @include in_size($xs) {
     &__field-wrapper {

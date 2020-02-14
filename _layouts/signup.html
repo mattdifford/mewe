@@ -18,12 +18,61 @@
             clone.find('.field__input--select').attr("name", 'platform-' + new_index);
             clone.find('.field__input[type="text"]').attr("name", 'handle-' + new_index).attr("id", 'handle-' + new_index).val("");
             last.after(clone);
+            if ($('.field__inner').length > 4) {
+                $('.field__link-add').hide()
+            } else {
+                $('.field__link-add').show()
+            }
         });
-        $('.field__link-remove').on("click", function (e) {
+        $('body').on("click", '.field__link-remove', function (e) {
             e.preventDefault();
-            $(this).parent('.field__inner').remove();
+            $(this).parents('.field__inner').remove();
+            if ($('.field__inner').length > 4) {
+                $('.field__link-add').hide()
+            } else {
+                $('.field__link-add').show()
+            }
+        });
+        var target = document.getElementById('mce-success-response');
+
+        // create an observer instance
+        if (target !== null) {
+            var form_observer = new MutationObserver(function (mutations) {
+                mutations.forEach(function (mutation) {
+                    if (target.innerHTML === "Thank you for subscribing!") {
+                        target.innerHTML = "<h3 class=\"form__title\">Thanks for submitting your information</h3><p class=\"form__pre-text\">You should receive an email confirmation shortly.</p>";
+                        document.getElementById('mc_embed_signup').classList.add('form--submitted');
+                        if (typeof gtag === "function") {
+                            gtag('event', "Form submission", { event_category: "Button Click", event_label: 'Signup form' });
+                        }
+                    }
+                });
+            });
+
+            // configuration of the observer:
+            var config = { attributes: true, childList: true, characterData: true };
+
+            // pass in the target node, as well as the observer options
+            form_observer.observe(target, config);
+        }
+        function setSocialFields() {
+            $('.field--social').each(function (index) {
+                var hidden_field = $('#mce-A_SOC_' + (index + 1));
+                var platform = $(this).find('.field__input--platform option:selected').val();
+                var username = $(this).find('.field__input--username').val();
+                hidden_field.val(platform + ': ' + username);
+            })
+        }
+        $('body').on("change", '.field__input--platform', function () {
+            setSocialFields()
+        });
+        $('body').on("blur", '.field__input--username', function () {
+            setSocialFields()
         });
     </script>
+    <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+    <script
+        type='text/javascript'>(function ($) { window.fnames = new Array(); window.ftypes = new Array(); fnames[0] = 'EMAIL'; ftypes[0] = 'email'; fnames[1] = 'FNAME'; ftypes[1] = 'text'; fnames[2] = 'LNAME'; ftypes[2] = 'text'; fnames[4] = 'PHONE'; ftypes[4] = 'phone'; fnames[3] = 'C_TITLE'; ftypes[3] = 'text'; fnames[5] = 'C_AUDIENCE'; ftypes[5] = 'text'; fnames[6] = 'C_BUDGET'; ftypes[6] = 'text'; fnames[7] = 'C_DATES'; ftypes[7] = 'text'; fnames[8] = 'C_KPIS'; ftypes[8] = 'text'; fnames[9] = 'C_CHANNELS'; ftypes[9] = 'text'; fnames[10] = 'A_SOC_1'; ftypes[10] = 'text'; fnames[11] = 'A_SOC_2'; ftypes[11] = 'text'; fnames[12] = 'A_SOC_3'; ftypes[12] = 'text'; fnames[13] = 'A_SOC_4'; ftypes[13] = 'text'; fnames[14] = 'A_SOC_5'; ftypes[14] = 'text'; fnames[15] = 'MMERGE15'; ftypes[15] = 'text'; }(jQuery)); var $mcj = jQuery.noConflict(true);</script>
 </body>
 
 </html>
