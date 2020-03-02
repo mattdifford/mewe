@@ -4,13 +4,15 @@
         <div class="split-strip__wrapper">
             <div class="split-strip__col">
                 <div class="split-strip__col-content">
-                    <h3 class="split-strip__col-title">For brands</h3>
-                    <p class="split-strip__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                        ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Non pulvinar </p>
-                    <a href="/brands" class="button button--primary">Sign up</a>
+                    <h3 class="split-strip__col-title">Brands</h3>
+                    <p class="split-strip__text">{{site.title}} is all about collaboration: Transforming ME to WE, and
+                        THEM to US.</p>
+                    <p class="split-strip__text">{{site.title}} goes beyond the aesthetics and connects you to the
+                        World’s best athletes with authentic and engaged followings. From Olympic legends to World Cup
+                        Winners to &ldquo;The Next Big Thing&rdquo; they bring Personality amplified by Performance and a genuine
+                        interest in your brand.</p>
+                    <p class="split-strip__text">Create credible, fully trackable campaigns aligned to your KPIs whilst utilising genuine star power. Now that's true influence.</p>
+                    <a href="/brands" class="button button--primary">Join us</a>
                 </div>
                 <div style="background-image:url('/images/athletes.png')"
                     class="split-strip__image scroll-image fold-image" id="split_strip_image_1">
@@ -18,13 +20,15 @@
             </div>
             <div class="split-strip__col">
                 <div class="split-strip__col-content">
-                    <h3 class="split-strip__col-title">For athletes</h3>
-                    <p class="split-strip__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                        ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Non pulvinar </p>
-                    <a href="/athletes" class="button button--primary">Sign up</a>
+                    <h3 class="split-strip__col-title">Athletes</h3>
+                    <p class="split-strip__text">{{site.title}} is all about collaboration: Transforming ME to WE, and
+                        THEM to US.</p>
+                    <p class="split-strip__text">{{site.title}} connects you to the biggest brands and the best
+                        campaigns. Built by athletes for athletes we understand that there is a person behind the
+                        persona and that’s why we only connect you to the brands you use, the brands you trust and the
+                        brands you’ll love.</p>
+                    <p class="split-strip__text">Authentic. Honest. Relevant. Now that’s true influence.</p>
+                    <a href="/athletes" class="button button--primary">Join us</a>
                 </div>
                 <div style="background-image:url('/images/athletes.png')"
                     class="split-strip__image scroll-image fold-image" id="split_strip_image_2">
@@ -32,34 +36,5 @@
             </div>
         </div>
     </div>
-    <footer class="strip-footer">
-        <div class="stats-strip">
-            <div class="container">
-                <div class="stats-strip__wrapper">
-                    <div class="stats-strip__col">
-                        <h4 class="stats-strip__title">999 athletes</h4>
-                    </div>
-                    <div class="stats-strip__col">
-                        <h4 class="stats-strip__title">9.9 million fans</h4>
-                    </div>
-                    <div class="stats-strip__col">
-                        <h4 class="stats-strip__title">99 channels</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="strip-footer__wrapper">
-            <div class="container">
-                <div class="strip-footer__inner">
-                    <div class="strip-footer__logo">{% include logo-mono.svg %}</div>
-                    <div class="strip-footer__nav">
-                        <a href="/brands" class="strip-footer__link">Brands</a>
-                        <a href="/athletes" class="strip-footer__link">Athletes</a>
-                        <!-- <a href="/contact" class="strip-footer__link">Contact us</a> -->
-                        <a href="/privacy" class="strip-footer__link">Privacy policy</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    {% include footer.html %}
 </section>

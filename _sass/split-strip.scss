@@ -60,8 +60,26 @@
     margin-bottom: 25px;
   }
   @include in_size($md-only) {
+    padding-bottom: 195px;
+    &__title {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+    &__col {
+      flex-wrap: wrap;
+      &-title {
+        font-size: 28px;
+      }
+      &-content {
+        flex: 1 0 100%;
+        padding-right: 0;
+      }
+    }
     &__outer-wrapper {
       padding: 0 80px;
+    }
+    &__image {
+      display: none;
     }
   }
   @include in_size($mobile) {
@@ -185,6 +203,12 @@
     transition: color 0.2s ease-in-out 0s;
     &:hover {
       color: $colour_secondary;
+    }
+  }
+  @include in_size($md-only) {
+    &__logo {
+      width: 55px;
+      height: 75px;
     }
   }
   @include in_size($xs) {
