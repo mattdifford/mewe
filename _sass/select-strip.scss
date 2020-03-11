@@ -11,6 +11,13 @@
     &.brand {
       background: $colour_secondary;
       color: $colour_primary;
+      .select-strip {
+        &__title {
+          span {
+            font-family: $font_heading;
+          }
+        }
+      }
     }
     &.athlete {
       background: $colour_primary;

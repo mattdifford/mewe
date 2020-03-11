@@ -1,0 +1,17 @@
+{% assign brands = 'apple,samsung,vodafone,panasonic,afh,ou' | split: ',' %}
+
+<div class="footer-logos">
+    <div class="container">
+        <div class="footer-logos__wrapper">
+            <h3>Brands we've worked with</h3>
+            <div class="footer-logos__list">
+                {% for brand in brands %}
+                    <div class="footer-logos__item">
+                        {% capture url %}/images/logo-{{brand}}.png{% endcapture %}
+                        {% include picture.html url=url alt=brand %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

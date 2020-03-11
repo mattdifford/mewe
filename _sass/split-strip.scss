@@ -172,6 +172,33 @@
   }
 }
 
+.footer-logos {
+  background: $colour_secondary;
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    h3 {
+      flex: 0 0 auto;
+      font-size: 25px;
+      margin-right: 100px;
+    }
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__item {
+    flex: 1 1 auto;
+    margin: 0 40px;
+    picture,
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
 .strip-footer {
   position: absolute;
   bottom: 0;
@@ -182,8 +209,8 @@
     padding: 20px 0;
   }
   &__logo {
-    width: 85px;
-    height: 115px;
+    width: 65px;
+    height: 89px;
   }
   &__inner {
     display: flex;
