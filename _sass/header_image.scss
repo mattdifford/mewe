@@ -135,4 +135,19 @@
       font-size: 30px;
     }
   }
+  // @media screen and (max-height: 850px) {
+  //   &__title {
+  //     font-size: 50px;
+  //     line-height: 1.2;
+  //     span {
+  //       line-height: initial;
+  //       + span {
+  //         margin-top: -10px;
+  //       }
+  //     }
+  //   }
+  //   &__subtitle {
+  //     font-size: 30px;
+  //   }
+  // }
 }

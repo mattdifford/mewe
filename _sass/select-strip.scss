@@ -93,4 +93,9 @@
       display: none;
     }
   }
+  @media screen and (max-height: 850px) and (min-width: 991px) {
+    &__col {
+      padding: 150px 0;
+    }
+  }
 }
