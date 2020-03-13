@@ -183,20 +183,38 @@
     display: flex;
     align-items: center;
     padding: 10px 0;
+    @include in_size($xs) {
+      flex-wrap: wrap;
+    }
     h3 {
       flex: 0 0 auto;
       font-size: 25px;
       margin-right: 100px;
+      @include in_size($xs) {
+        margin-right: 0;
+        text-align: center;
+        flex: 0 1 100%;
+      }
     }
   }
   &__list {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include in_size($xs) {
+      flex-wrap: wrap;
+    }
   }
   &__item {
     flex: 1 1 auto;
     margin: 0 40px;
+    @include in_size($xs) {
+      margin: 20px;
+      flex: 1 1 100%;
+      display: flex;
+      justify-content: center;
+      max-width: 80px;
+    }
     picture,
     img {
       max-width: 100%;
