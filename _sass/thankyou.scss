@@ -1,0 +1,34 @@
+.thankyou {
+  min-height: 100vh;
+  background: url("/images/stadium-large.jpg");
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-family: $font_text_alt;
+  &__wrapper {
+    text-align: center;
+    h1 {
+      font-family: $font_text_alt;
+      font-size: 65px;
+      border-bottom: 2px solid $colour_secondary;
+      padding-bottom: 30px;
+    }
+    p {
+      font-size: 26px;
+    }
+    @include in_size($lg) {
+      width: 27%;
+    }
+    @include in_size($md-only) {
+      width: 33%;
+    }
+    @include in_size($sm) {
+      width: 40%;
+      margin: 0 auto;
+    }
+  }
+}
+
+.header {
+  position: absolute;
+}

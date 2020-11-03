@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+{%- include head.html -%}
+
+<body class="body--{{page.section}}">
+    {%- include header.html -%}
+    {%- include form--{{page.section}}.html %}
+
+    {%- include footer--small.html -%}
+    {%- include foot.html layout=page.layout -%}
+    <script>
+        $('.field__link-add').on("click", function (e) {
+            e.preventDefault();
+            var last = $('.field__inner').last();
+            var count = parseInt(last.attr("id").slice(-1));
+            var new_index = count + 1;
+            var clone = last.clone();
+            clone.attr("id", 'field_inner_' + new_index);
+            clone.find('.field__input--select').attr("name", 'platform-' + new_index);
+            clone.find('.field__input[type="text"]').attr("name", 'handle-' + new_index).attr("id", 'handle-' + new_index).val("");
+            last.after(clone);
+            if ($('.field__inner').length > 4) {
+                $('.field__link-add').hide()
+            } else {
+                $('.field__link-add').show()
+            }
+        });
+        $('body').on("click", '.field__link-remove', function (e) {
+            e.preventDefault();
+            $(this).parents('.field__inner').remove();
+            if ($('.field__inner').length > 4) {
+                $('.field__link-add').hide()
+            } else {
+                $('.field__link-add').show()
+            }
+        });
+        function setSocialFields() {
+            $('.field--social').each(function (index) {
+                var hidden_field = $('#mce-A_SOC_' + (index + 1));
+                var platform = $(this).find('.field__input--platform option:selected').val();
+                var username = $(this).find('.field__input--username').val();
+                hidden_field.val(platform + ': ' + username);
+            })
+        }
+        $('body').on("change", '.field__input--platform', function () {
+            setSocialFields()
+        });
+        $('body').on("blur", '.field__input--username', function () {
+            setSocialFields()
+        });
+        $('.form__proceed').on("click", function (e) {
+            e.preventDefault();
+            var parent_fs = $(this).parents('fieldset');
+            var group_name = parent_fs.attr('data-fieldset-name');
+            var parent_form = $(this).parents('.form');
+            parent_form.parsley().whenValidate({
+                group: group_name,
+                force: true
+            }).done(function () {
+                parent_fs.hide().next().show();
+            });
+        });
+        $('.form__back').on("click", function (e) {
+            e.preventDefault();
+            var parent_fs = $(this).parents('fieldset');
+            parent_fs.hide().prev().show();
+        });
+        $('.field__input--select').on("change", function () {
+            if ($(this).val() == "Other") {
+                var input = '<input type="text" name="' + $(this).attr("name") + '" id="' + $(this).attr("id") + '" placeholder="Other - please specify" class="field__input"/>';
+                $(this).after(input).remove();
+            }
+        })
+        $('*[data-conditional="true"]').on("change", function () {
+            if ($(this).val() === "Yes") {
+                $(this).parents('.form__field').next('.form__field--conditional').show();
+            } else {
+                $(this).parents('.form__field').next('.form__field--conditional').hide();
+            }
+        });
+        $('.field__input').each(function () {
+            if (localStorage.getItem($(this).attr("name")) !== null) {
+                $(this).val(localStorage.getItem($(this).attr("name")));
+            }
+        })
+        $('.field__input').on("change blur", function (e) {
+            localStorage.setItem($(this).attr("name"), $(this).val());
+        });
+        $(".form__submit").on("click", function (e) {
+            e.preventDefault();
+            var form = $(this).parents("#form");
+            var data_obj = form.serializeObject();
+            data_obj["ckm_campaign_id"] = 10;
+            data_obj["ckm_key"] = 'jRniiHXUV5w';
+            $.ajax({
+                type: 'POST',
+                data: JSON.stringify(data_obj),
+                contentType: 'application/json',
+                url: 'https://prod-21.uksouth.logic.azure.com:443/workflows/24a090a83c174be49485e9113f6054d9/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=zFV2K8QhnHCVJPqgLD9OuFP9ObsRqbPKOVGO85UNmR4',
+                success: function (data) {
+                    debugger;
+                },
+                error: function (e) {
+                    debugger
+                },
+            })
+        });
+
+        $.fn.serializeObject = function () {
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function () {
+                if (o[this.name]) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
+    </script>
+</body>
+
+</html>
