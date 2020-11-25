@@ -13,28 +13,28 @@
                         <div class="form__field-wrapper">
                             <div class="form__field field">
                                 <label class="field__label" for="first_name">First name</label>
-                                <input class="field__input" data-parsley-group="0" name="first_name" id="first_name"
-                                    type="text" required data-parsley-required="true" />
+                                <input class="field__input"  name="first_name" id="first_name"
+                                    type="text" required  />
                             </div>
                             <div class="form__field field">
                                 <label class="field__label" for="last_name">Surname</label>
-                                <input class="field__input" data-parsley-group="0" name="last_name" id="last_name"
-                                    type="text" required data-parsley-required="true" />
+                                <input class="field__input"  name="last_name" id="last_name"
+                                    type="text" required  />
                             </div>
                             <div class="form__field field">
                                 <label class="field__label" for="phone_number">DOB</label>
-                                <input class="field__input" data-parsley-group="0" name="dob" id="dob" type="date"
-                                required data-parsley-required="true" />
+                                <input class="field__input"  name="dob" id="dob" type="date"
+                                required  />
                             </div>
                             <div class="form__field field">
                                 <label class="field__label" for="phone_number">Phone number</label>
-                                <input class="field__input" data-parsley-group="0" name="phone_number" id="phone_number"
-                                    type="tel" required data-parsley-required="true" />
+                                <input class="field__input"  name="phone_number" id="phone_number"
+                                    type="tel" required  />
                             </div>
                             <div class="form__field field">
                                 <label class="field__label" for="email_address">Email address</label>
-                                <input class="field__input" data-parsley-group="0" name="email_address"
-                                    id="email_address" type="email" required data-parsley-required="true" />
+                                <input class="field__input d8val_inttelephone_mobile_line_opt data-8-number d8val_email data-8-email"  name="email_address"
+                                    id="email_address" type="email" required  />
                             </div>
                             <div class="form__buttons">
                                 <button class="button button--secondary form__proceed">Next step</button>
@@ -45,8 +45,8 @@
                         <div class="form__field-wrapper">
                             <div class="form__field field form__field--select">
                                 <label class="field__label" for="sport">What's your sport?</label>
-                                <select class="field__input field__input--select" data-parsley-group="2" name="sport"
-                                    id="sport" required data-parsley-required="true">
+                                <select class="field__input field__input--select"  name="sport"
+                                    id="sport" required >
                                     <option selected disabled>Choose your sport</option>
                                     <option value="Football">Football</option>
                                     <option value="Rugby">Rugby</option>
@@ -58,8 +58,8 @@
                             </div>
                             <div class="form__field field form__field--select">
                                 <label class="field__label" for="level">Highest level competed at</label>
-                                <select class="field__input field__input--select" data-parsley-group="2" name="level"
-                                    id="level" required data-parsley-required="true">
+                                <select class="field__input field__input--select"  name="level"
+                                    id="level" required >
                                     <option selected disabled>Choose your level</option>
                                     <option value="Amateur">Amateur</option>
                                     <option value="County">County</option>
@@ -70,9 +70,9 @@
                             </div>
                             <div class="form__field field form__field--select">
                                 <label class="field__label" for="achievements">Key achievements</label>
-                                <textarea class="field__input field__input--textarea" data-parsley-group="2"
+                                <textarea class="field__input field__input--textarea" 
                                     name="achievements" id="achievements"
-                                    placeholder="e.g. Competitions won" required data-parsley-required="true"></textarea>
+                                    placeholder="e.g. Competitions won" required ></textarea>
                             </div>
                             <div class="form__buttons">
                                 <button class="form__back">Go back</button>
@@ -89,7 +89,7 @@
                                 <div class="field__inner field--social" id="field_inner_1">
                                     <div class="field__field">
                                         <select class="field__input field__input--select field__input--platform"
-                                            name="platform-1">
+                                            name="platform-1" required>
                                             <option selected disabled>Choose platform</option>
                                             <option value="Instagram">Instagram</option>
                                             <option value="Facebook">Facebook</option>
@@ -100,7 +100,7 @@
                                     </div>
                                     <div class="field__field">
                                         <input class="field__input field__input--username" name="handle-1" id="handle-1"
-                                            type="text" />
+                                            type="text" required/>
                                         <a href="#" class="field__link field__link-remove"></a>
                                     </div>
                                 </div>
@@ -118,7 +118,7 @@
                         <div class="form__field-wrapper">
                             <div class="form__field field form__field--select">
                                 <label class="field__label" for="relationship_status">Relationship status:</label>
-                                <select class="field__input field__input--select" data-parsley-group="3"
+                                <select class="field__input field__input--select" 
                                     name="relationship_status" id="relationship_status">
                                     <option selected disabled>Please select</option>
                                     <option value="Married">Married</option>
@@ -131,13 +131,13 @@
                                 <label class="field__label" for="children">Do you have children</label>
                                 <div class="field__radios">
                                     <div class="field__radio-item"><input type="radio" name="children"
-                                            data-parsley-multiple="children" value="Yes" id="children-yes" required
-                                            class="field__radio-input" data-parsley-group="3"><label
+                                             value="Yes" id="children-yes" required
+                                            class="field__radio-input" ><label
                                             class="field__radio-label" for="children-yes">Yes</label>
                                     </div>
                                     <div class="field__radio-item"><input type="radio" name="children"
-                                            data-parsley-multiple="children" value="No" id="children-no" required
-                                            class="field__radio-input" data-parsley-group="3"><label
+                                             value="No" id="children-no" required
+                                            class="field__radio-input" ><label
                                             class="field__radio-label" for="children-no">No</label>
                                     </div>
                                 </div>
@@ -146,13 +146,13 @@
                                 <label class="field__label" for="family">Are you interested in family campaigns?</label>
                                 <div class="field__radios">
                                     <div class="field__radio-item"><input type="radio" name="family"
-                                            data-parsley-multiple="family" value="Yes" id="family-yes" required
-                                            class="field__radio-input" data-parsley-group="3"><label
+                                             value="Yes" id="family-yes" required
+                                            class="field__radio-input" ><label
                                             class="field__radio-label" for="family-yes">Yes</label>
                                     </div>
                                     <div class="field__radio-item"><input type="radio" name="family"
-                                            data-parsley-multiple="family" value="No" id="family-no" required
-                                            class="field__radio-input" data-parsley-group="3"><label
+                                             value="No" id="family-no" required
+                                            class="field__radio-input" ><label
                                             class="field__radio-label" for="family-no">No</label>
                                     </div>
                                 </div>
@@ -161,13 +161,13 @@
                                 <label class="field__label" for="pets">Do you have any pets?</label>
                                 <div class="field__radios">
                                     <div class="field__radio-item"><input type="radio" name="pets"
-                                            data-parsley-multiple="pets" value="Yes" id="pets-yes" required
-                                            class="field__radio-input" data-parsley-group="3"><label
+                                             value="Yes" id="pets-yes" required
+                                            class="field__radio-input" ><label
                                             class="field__radio-label" for="pets-yes">Yes</label>
                                     </div>
                                     <div class="field__radio-item"><input type="radio" name="pets"
-                                            data-parsley-multiple="pets" value="No" id="pets-no" required
-                                            class="field__radio-input" data-parsley-group="3"><label
+                                             value="No" id="pets-no" required
+                                            class="field__radio-input" ><label
                                             class="field__radio-label" for="pets-no">No</label>
                                     </div>
                                 </div>
@@ -184,14 +184,14 @@
                                 <label class="field__label" for="gamer">Are you a gamer?</label>
                                 <div class="field__radios">
                                     <div class="field__radio-item"><input type="radio" name="gamer"
-                                            data-conditional="true" data-parsley-multiple="gamer" value="Yes"
+                                            data-conditional="true"  value="Yes"
                                             id="gamer-yes" required class="field__radio-input"
-                                            data-parsley-group="4"><label class="field__radio-label"
+                                            ><label class="field__radio-label"
                                             for="gamer-yes">Yes</label>
                                     </div>
                                     <div class="field__radio-item"><input type="radio" name="gamer"
-                                            data-parsley-multiple="gamer" value="No" id="gamer-no" required
-                                            class="field__radio-input" data-parsley-group="4"
+                                             value="No" id="gamer-no" required
+                                            class="field__radio-input" 
                                             data-conditional="true"><label class="field__radio-label"
                                             for="gamer-no">No</label>
                                     </div>
@@ -199,8 +199,8 @@
                             </div>
                             <div class="form__field field form__field--select form__field--conditional">
                                 <label class="field__label" for="platform">What platform do you play on?</label>
-                                <select class="field__input field__input--select" data-parsley-group="4" name="platform"
-                                    id="platform">
+                                <select class="field__input field__input--select"  name="platform"
+                                    id="platform" required>
                                     <option selected disabled>Please choose</option>
                                     <option value="Xbox">Xbox</option>
                                     <option value="Playstation">Playstation</option>
@@ -221,13 +221,13 @@
                                     opportunities and events?</label>
                                 <div class="field__radios">
                                     <div class="field__radio-item"><input type="radio" name="public_speaking"
-                                            data-parsley-multiple="public_speaking" value="Yes" id="public_speaking-yes"
-                                            required class="field__radio-input" data-parsley-group="5"><label
+                                             value="Yes" id="public_speaking-yes"
+                                            required class="field__radio-input" ><label
                                             class="field__radio-label" for="public_speaking-yes">Yes</label>
                                     </div>
                                     <div class="field__radio-item"><input type="radio" name="public_speaking"
-                                            data-parsley-multiple="public_speaking" value="No" id="public_speaking-no"
-                                            required class="field__radio-input" data-parsley-group="5"><label
+                                             value="No" id="public_speaking-no"
+                                            required class="field__radio-input" ><label
                                             class="field__radio-label" for="public_speaking-no">No</label>
                                     </div>
                                 </div>
@@ -237,13 +237,13 @@
                                     content? e.g. podcasts, YouTube channels</label>
                                 <div class="field__radios">
                                     <div class="field__radio-item"><input type="radio" name="online_content"
-                                            data-parsley-multiple="online_content" value="Yes" id="online_content-yes"
-                                            required class="field__radio-input" data-parsley-group="5"><label
+                                             value="Yes" id="online_content-yes"
+                                            required class="field__radio-input" ><label
                                             class="field__radio-label" for="online_content-yes">Yes</label>
                                     </div>
                                     <div class="field__radio-item"><input type="radio" name="online_content"
-                                            data-parsley-multiple="online_content" value="No" id="online_content-no"
-                                            required class="field__radio-input" data-parsley-group="5"><label
+                                             value="No" id="online_content-no"
+                                            required class="field__radio-input" ><label
                                             class="field__radio-label" for="online_content-no">No</label>
                                     </div>
                                 </div>
@@ -253,13 +253,13 @@
                                     presence?</label>
                                 <div class="field__radios">
                                     <div class="field__radio-item"><input type="radio" name="help_building"
-                                            data-parsley-multiple="help_building" value="Yes" id="help_building-yes"
-                                            required class="field__radio-input" data-parsley-group="5"><label
+                                             value="Yes" id="help_building-yes"
+                                            required class="field__radio-input" ><label
                                             class="field__radio-label" for="help_building-yes">Yes</label>
                                     </div>
                                     <div class="field__radio-item"><input type="radio" name="help_building"
-                                            data-parsley-multiple="help_building" value="No" id="help_building-no"
-                                            required class="field__radio-input" data-parsley-group="5"><label
+                                             value="No" id="help_building-no"
+                                            required class="field__radio-input" ><label
                                             class="field__radio-label" for="help_building-no">No</label>
                                     </div>
                                 </div>
@@ -277,14 +277,14 @@
                                     relationships?</label>
                                 <div class="field__radios">
                                     <div class="field__radio-item"><input type="radio" name="brands"
-                                            data-parsley-multiple="brands" value="Yes" id="brands-yes" required
-                                            class="field__radio-input" data-parsley-group="6"
+                                             value="Yes" id="brands-yes" required
+                                            class="field__radio-input" 
                                             data-conditional="true"><label class="field__radio-label"
                                             for="brands-yes">Yes</label>
                                     </div>
                                     <div class="field__radio-item"><input type="radio" name="brands"
-                                            data-parsley-multiple="brands" value="No" id="brands-no" required
-                                            class="field__radio-input" data-parsley-group="6"
+                                             value="No" id="brands-no" required
+                                            class="field__radio-input" 
                                             data-conditional="true"><label class="field__radio-label"
                                             for="brands-no">No</label>
                                     </div>
@@ -292,9 +292,9 @@
                             </div>
                             <div class="form__field field form__field--conditional">
                                 <label class="field__label" for="brands_details">Please list details</label>
-                                <textarea class="field__input field__input--textarea" data-parsley-group="6"
+                                <textarea class="field__input field__input--textarea" 
                                     name="brands_details" id="brands_details"
-                                    placeholder="e.g. Sponsored by&hellip;"></textarea>
+                                    placeholder="e.g. Sponsored by&hellip;" required></textarea>
                             </div>
                             <div class="form__buttons">
                                 <button class="form__back">Go back</button>
@@ -309,63 +309,63 @@
                                     in:</label>
                                 <div class="field__radios field__checkbox">
                                     <div class="field__radio-item"><input type="checkbox" name="sectors"
-                                            data-parsley-multiple="sectors" value="Sport" id="sectors-sport" required
-                                            class="field__radio-input" data-parsley-group="7"><label
+                                             value="Sport" id="sectors-sport" required
+                                            class="field__radio-input" ><label
                                             class="field__radio-label" for="sectors-sport">Sport</label>
                                     </div>
                                     <div class="field__radio-item"><input type="checkbox" name="sectors"
-                                            data-parsley-multiple="sectors" value="Fashion" id="sectors-fashion"
-                                            required class="field__radio-input" data-parsley-group="7"><label
+                                             value="Fashion" id="sectors-fashion"
+                                            required class="field__radio-input" ><label
                                             class="field__radio-label" for="sectors-fashion">Fashion</label>
                                     </div>
                                     <div class="field__radio-item"><input type="checkbox" name="sectors"
-                                            data-parsley-multiple="sectors" value="Travel" id="sectors-travel" required
-                                            class="field__radio-input" data-parsley-group="7"><label
+                                             value="Travel" id="sectors-travel" required
+                                            class="field__radio-input" ><label
                                             class="field__radio-label" for="sectors-travel">Travel</label>
                                     </div>
                                     <div class="field__radio-item"><input type="checkbox" name="sectors"
-                                            data-parsley-multiple="sectors" value="Gambling" id="sectors-gambling"
-                                            required class="field__radio-input" data-parsley-group="7"><label
+                                             value="Gambling" id="sectors-gambling"
+                                            required class="field__radio-input" ><label
                                             class="field__radio-label" for="sectors-gambling">Gambling</label>
                                     </div>
                                     <div class="field__radio-item"><input type="checkbox" name="sectors"
-                                            data-parsley-multiple="sectors" value="Pets/Animals" id="sectors-pets"
-                                            required class="field__radio-input" data-parsley-group="7"><label
+                                             value="Pets/Animals" id="sectors-pets"
+                                            required class="field__radio-input" ><label
                                             class="field__radio-label" for="sectors-pets">Pets/Animals</label>
                                     </div>
                                     <div class="field__radio-item"><input type="checkbox" name="sectors"
-                                            data-parsley-multiple="sectors" value="Family" id="sectors-family" required
-                                            class="field__radio-input" data-parsley-group="7"><label
+                                             value="Family" id="sectors-family" required
+                                            class="field__radio-input" ><label
                                             class="field__radio-label" for="sectors-family">Family</label>
                                     </div>
                                     <div class="field__radio-item"><input type="checkbox" name="sectors"
-                                            data-parsley-multiple="sectors" value="Health & Fitness" id="sectors-health"
-                                            required class="field__radio-input" data-parsley-group="7"><label
+                                             value="Health & Fitness" id="sectors-health"
+                                            required class="field__radio-input" ><label
                                             class="field__radio-label" for="sectors-health">Health & Fitness</label>
                                     </div>
                                     <div class="field__radio-item"><input type="checkbox" name="sectors"
-                                            data-parsley-multiple="sectors" value="Technology" id="sectors-technology"
-                                            required class="field__radio-input" data-parsley-group="7"><label
+                                             value="Technology" id="sectors-technology"
+                                            required class="field__radio-input" ><label
                                             class="field__radio-label" for="sectors-technology">Technology</label>
                                     </div>
                                     <div class="field__radio-item"><input type="checkbox" name="sectors"
-                                            data-parsley-multiple="sectors" value="Automotive" id="sectors-automotive"
-                                            required class="field__radio-input" data-parsley-group="7"><label
+                                             value="Automotive" id="sectors-automotive"
+                                            required class="field__radio-input" ><label
                                             class="field__radio-label" for="sectors-automotive">Automotive</label>
                                     </div>
                                     <div class="field__radio-item"><input type="checkbox" name="sectors"
-                                            data-parsley-multiple="sectors" value="Home" id="sectors-home" required
-                                            class="field__radio-input" data-parsley-group="7"><label
+                                             value="Home" id="sectors-home" required
+                                            class="field__radio-input" ><label
                                             class="field__radio-label" for="sectors-home">Home</label>
                                     </div>
                                     <div class="field__radio-item"><input type="checkbox" name="sectors"
-                                            data-parsley-multiple="sectors" value="Food & Drink" id="sectors-food"
-                                            required class="field__radio-input" data-parsley-group="7"><label
+                                             value="Food & Drink" id="sectors-food"
+                                            required class="field__radio-input" ><label
                                             class="field__radio-label" for="sectors-food">Food & Drink</label>
                                     </div>
                                     <div class="field__radio-item"><input type="checkbox" name="sectors"
-                                            data-parsley-multiple="sectors" value="Beauty" id="sectors-beauty" required
-                                            class="field__radio-input" data-parsley-group="7"><label
+                                             value="Beauty" id="sectors-beauty" required
+                                            class="field__radio-input" ><label
                                             class="field__radio-label" for="sectors-beauty">Beauty</label>
                                     </div>
                                 </div>
@@ -382,8 +382,8 @@
                                 <label class="field__label" for="description">Here’s your chance to tell us a bit
                                     about yourself, your passions and interests; so we can help identify the most
                                     suitable brands and campaigns to match you with:</label>
-                                <textarea class="field__input field__input--textarea" data-parsley-group="8"
-                                    name="description" id="description" placeholder="Message"></textarea>
+                                <textarea class="field__input field__input--textarea" 
+                                    name="description" id="description" placeholder="Message" required></textarea>
                             </div>
                             <div class="form__buttons">
                                 <button class="form__back">Go back</button>

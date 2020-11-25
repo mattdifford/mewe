@@ -8,6 +8,10 @@
 
     {%- include footer--small.html -%}
     {%- include foot.html layout=page.layout -%}
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
+    <script type="text/javascript"
+        src="https://webservices.data-8.co.uk/javascript/loader.ashx?key=6LAV-4I4L-SRA4-462M&load=InternationalTelephoneValidation,EmailValidation"></script>
+    <script type="text/javascript" src="https://webservices.data-8.co.uk/javascript/jqueryvalidation_min.js"></script>
     <script>
         $('.field__link-add').on("click", function (e) {
             e.preventDefault();
@@ -34,31 +38,12 @@
                 $('.field__link-add').show()
             }
         });
-        function setSocialFields() {
-            $('.field--social').each(function (index) {
-                var hidden_field = $('#mce-A_SOC_' + (index + 1));
-                var platform = $(this).find('.field__input--platform option:selected').val();
-                var username = $(this).find('.field__input--username').val();
-                hidden_field.val(platform + ': ' + username);
-            })
-        }
-        $('body').on("change", '.field__input--platform', function () {
-            setSocialFields()
-        });
-        $('body').on("blur", '.field__input--username', function () {
-            setSocialFields()
-        });
         $('.form__proceed').on("click", function (e) {
             e.preventDefault();
             var parent_fs = $(this).parents('fieldset');
-            var group_name = parent_fs.attr('data-fieldset-name');
-            var parent_form = $(this).parents('.form');
-            parent_form.parsley().whenValidate({
-                group: group_name,
-                force: true
-            }).done(function () {
+            if ($('.form').valid()) {
                 parent_fs.hide().next().show();
-            });
+            };
         });
         $('.form__back').on("click", function (e) {
             e.preventDefault();
@@ -98,11 +83,35 @@
                 contentType: 'application/json',
                 url: 'https://prod-21.uksouth.logic.azure.com:443/workflows/24a090a83c174be49485e9113f6054d9/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=zFV2K8QhnHCVJPqgLD9OuFP9ObsRqbPKOVGO85UNmR4',
                 success: function (data) {
-                    debugger;
-                },
-                error: function (e) {
-                    debugger
-                },
+                        window.location.href = 'thankyou'
+                        if (typeof gtag === 'function') {
+                            gtag('event', 'Form submission success', { 'event_category': 'Form submission' });
+                        }
+                    },
+                    error: function (e) {
+                        if (window.DOMParser) {
+                            parser = new DOMParser();
+                            xmlDoc = parser.parseFromString(e.responseText, "text/xml");
+                        }
+                        else // Internet Explorer
+                        {
+                            xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+                            xmlDoc.async = false;
+                            xmlDoc.loadXML(e.responseText);
+                        }
+                        var error = xmlDoc.getElementsByTagName("error")[0].childNodes[0].nodeValue;
+                        var msg = 'Something went wrong, please try again.';
+                        switch (error) {
+                            case "Duplicate Lead":
+                                msg = 'These details have already been submitted';
+                                break;
+                            case "Unmatched Filter: GEO Restriction":
+                                window.location.href = 'thankyou-no-match'
+                                break;
+                        }
+                        parent_form.removeClass('submitting');
+                        parent_form.find(".form__button").after('<p class="form__message form__message--error">' + msg + '</p>');
+                    }
             })
         });
 
@@ -111,16 +120,25 @@
             var a = this.serializeArray();
             $.each(a, function () {
                 if (o[this.name]) {
-                    if (!o[this.name].push) {
-                        o[this.name] = [o[this.name]];
-                    }
-                    o[this.name].push(this.value || '');
+                    o[this.name] = o[this.name] + ', '+ this.value;
                 } else {
                     o[this.name] = this.value || '';
                 }
             });
             return o;
         };
+        $('.form').validate({
+            rules: {
+                phone_number: {
+                    required: "Enter a telephone number",
+                    d8val_inttelephone_mobile_line_opt: [{
+                        name: "RequiredCountry", value: "GB",
+                        name: "UseMobileValidation", value: true,
+                        name: "AllowedPrefixes", value: "+447,+441,+442",
+                    }]
+                }
+            }
+        });
     </script>
 </body>
 
