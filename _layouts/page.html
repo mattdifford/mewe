@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+{%-include head.html-%}
+
+<body class="body--page">
+    <div class="body-wrapper">
+        {%- include header.html -%}
+        <div class="page-wrapper">
+            <div class="container">
+                {{content}}
+            </div>
+        </div>
+    </div>
+    {%- include foot.html layout=page.layout -%}
+</body>
+
+</html>
