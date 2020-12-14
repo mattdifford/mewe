@@ -74,6 +74,8 @@
         $(".form__submit").on("click", function (e) {
             e.preventDefault();
             var form = $(this).parents("#form");
+            form.addClass('submitting');
+            form.find(".form__message--error").remove();
             var data_obj = form.serializeObject();
             data_obj["ckm_campaign_id"] = 10;
             data_obj["ckm_key"] = 'jRniiHXUV5w';
@@ -143,8 +145,8 @@
                             window.location.href = 'thankyou-no-match'
                             break;
                     }
-                    parent_form.removeClass('submitting');
-                    parent_form.find(".form__button").after('<p class="form__message form__message--error">' + msg + '</p>');
+                    form.removeClass('submitting');
+                    form.find(".form__inner").after('<p class="form__message form__message--error">' + msg + '</p>');
                 }
             })
         });
