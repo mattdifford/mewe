@@ -98,7 +98,7 @@
                             break;
                         case "Twitter":
                             $.ajax({
-                                url: "https://cdn.syndication.twimg.com/widgets/followbutton/info.json?screen_names=" + twitter_username,
+                                url: "https://cdn.syndication.twimg.com/widgets/followbutton/info.json?screen_names=" + data_obj["handle-" + i],
                                 dataType: 'jsonp',
                                 crossDomain: true,
                                 success: function (data) {
